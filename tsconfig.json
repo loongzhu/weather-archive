@@ -1,0 +1,87 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true
+  },
+  "baseUrl": "./",
+  "files": ["main.ts", "api.ts"],
+  "include": ["*.ts"],
+  "exclude": ["node_modules"]
+}
+
+// {
+//   /*
+//   *  tsconfig.json 是ts编译器的配置文件，ts编译器可以根据它的信息，来对代码进行编译
+//     include 用来指定那些 ts 文件需要被编译
+//       路径：** 表示任意目录
+//             * 表示任意文件
+//     exclude 不需要被编译的文件目录
+//       默认值：[ "node_modules", "bower_components" ]
+//   */
+//   "include": [
+//     "./**/*"
+//   ],
+//   "exclude": [
+//     "./app/**/*"
+//   ],
+//   "extends": "",
+//   "files": [], // 类似于include，是一个文件列表，一般情况不用
+//   /*
+//   compilerOptions:编译器选项
+//   */
+//   "compilerOptions": {
+//     // target 用来指定 ts 被编译为 ES 的版本
+//     "target": "ES6",
+
+//     // module 指定使用的模块化规范
+//     // 'none', 'commonjs', 'amd', 'system', 'umd', 'es6', 'es2015', 'es2020',
+//     // 'es2022‘,'esnext', 'node12', 'nodenext'
+//     "module": "asc",
+
+//     // lib 用来指定项目中要使用的库,正常不需要设置
+//     "lib": ["dom"],
+
+//     // outDir 指定编译后文件所在的目录
+//     "outDir": "./dist",
+
+//     // outFile 合并编译后的代码
+//     // 设置 outFile 后，所有的全局作用域代码会合并在同一个文件中
+//     "outFile": "./dist/app.js"
+
+//     // allowJs 是否对 js 文件进行编译，默认是false
+//     "allowJs": false,
+
+//     // checkJs 是否检查 js 代码是否符合语法规范
+//     "checkJs": false,
+
+//     // 是否编译注释
+//     "removeComments": true,
+
+//     // noEmit 不生成编译后的文件（只执行编译过程）
+//     "noEmit": false,
+
+//     // noEmitOnError 当有错误时，不生成编译后的文件
+//     "noEmitOnError": true,
+
+//     // 所有严格检查的总开关
+//     "strict": true,
+
+//     // alwaysStrict 用来设置编译后的文件是否开启严格模式
+//     "alwaysStrict": true,
+
+//     // noImplicitAny 不允许隐式的 any 类型
+//     "noImplicitAny": true,
+
+//     // noImplicitThis 不允许明确类型的 this
+//     "noImplicitThis": true,
+
+//     // 严格的空值检查
+//     "strictNullChecks": true
+// }
