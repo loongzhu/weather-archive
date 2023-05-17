@@ -18,3 +18,13 @@ export async function getCitys() {
 
   return city_data;
 }
+
+export function formatDate(): string {
+  const date = new Date();
+
+  const date_str = date.toLocaleString();
+
+  const format_date = date_str.replace(/[\/\s:]/g, "_");
+
+  return format_date;
+}

@@ -1,5 +1,9 @@
-import { getCitys } from "./api.ts";
+import { getCitys, formatDate } from "./api.ts";
 
-const city_data = await getCitys();
+// const city_data = await getCitys();
 
-console.log("🚀 ~ city_data:", city_data);
+// console.log("🚀 ~ city_data:", city_data);
+
+const date = formatDate();
+
+console.log("🚀 ~ date:", date + ".json");
