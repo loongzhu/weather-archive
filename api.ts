@@ -53,6 +53,6 @@ export function writeFile(name: string, data: string | object) {
 
   fs.writeFile(`./${name}.json`, data, (err: any) => {
     if (err) throw err;
-    console.log("city_data.json has been created successfully.");
+    console.log(`${name}.json has been created successfully.`);
   });
 }
