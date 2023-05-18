@@ -25,4 +25,4 @@ const citys: CityCode = Object.keys(city_codes).reduce(
 
 console.log("🚀 ~ citys:", citys);
 
-writeFile("flattened", city_codes);
+writeFile("flattened.json", city_codes);

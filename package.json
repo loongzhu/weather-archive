@@ -5,7 +5,7 @@
   "type": "module",
   "main": "main.ts",
   "scripts": {
-    "dev": "ts-node --esm ./main.ts"
+    "main": "ts-node --esm ./main.ts"
   },
   "author": "zhuzhenquan",
   "license": "MIT",
