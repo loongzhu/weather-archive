@@ -1,5 +1,12 @@
 import { getCitys, formatDate, flattenObject, writeFile } from "./api.ts";
 import { CityCode } from "./types.ts";
+import process from "process";
+
+const { node: node_version } = process.versions;
+
+if (node_version < "18.0.0") {
+  throw new Error("node version must >= 18.0.0");
+}
 
 const city_data = await getCitys();
 
