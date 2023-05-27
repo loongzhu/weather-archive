@@ -18,7 +18,7 @@ if (node_version < "18.0.0") {
   throw new Error("node version must >= 18.0.0");
 }
 
-function main() {
+async function main() {
   try {
     const city_data = await getCities();
 
