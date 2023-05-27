@@ -27,11 +27,6 @@ export async function getCities(): Promise<City> {
 
   const city_data: City = JSON.parse(city_data_json);
 
-  // fs.writeFile("./city_data.json", city_data_json, (err: any) => {
-  //   if (err) throw err;
-  //   console.log("city_data.json has been created successfully.");
-  // });
-
   return city_data;
 }
 
