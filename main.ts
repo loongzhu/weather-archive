@@ -1,5 +1,15 @@
-import { getCitys, formatDate, flattenObject, writeFile } from "./api.ts";
-import { CityCode } from "./types.ts";
+import {
+  getCities,
+  getDate,
+  formatDate,
+  flattenObject,
+  writeFile,
+  getWeatherData,
+  getRealtimeData,
+  getCapitals,
+  mkdir,
+} from "./api.ts";
+import { CityCode, CityData, dateType } from "./types.ts";
 import process from "process";
 
 const { node: node_version } = process.versions;
@@ -8,28 +18,40 @@ if (node_version < "18.0.0") {
   throw new Error("node version must >= 18.0.0");
 }
 
-const city_data = await getCitys();
-
-// console.log("🚀 ~ city_data:", city_data);
-
-// const date = formatDate();
-
-// console.log("🚀 ~ date:", date + ".json");
+const city_data = await getCities();
 
 const city_codes = flattenObject(city_data);
 
-const city_arr = ["北京", "上海", "天津", "重庆", "沧州"];
+const capitals = getCapitals(city_data);
 
-const citys: CityCode = Object.keys(city_codes).reduce(
-  (obj: CityCode, key: string) => {
-    if (city_arr.includes(key)) {
-      obj[key] = city_codes[key];
-    }
-    return obj;
-  },
-  {}
-);
+const cities: CityData[] = capitals.map((capital) => {
+  const city = {
+    id: city_codes[capital.city],
+    province: capital.province,
+    city: capital.city,
+  };
+  return city;
+});
 
-console.log("🚀 ~ citys:", citys);
+for (let city of cities) {
+  city.realtime = await getRealtimeData(city.id);
+  city.weather = await getWeatherData(city.id);
+}
 
-writeFile("flattened.json", city_codes);
+const today = new Date();
+const { date, datetime }: dateType = await getDate(today);
+const fDate = formatDate();
+
+const content = {
+  timestamp: today.getTime(),
+  lastUpdate: datetime,
+  data: cities,
+};
+
+await mkdir(`weathers/${date}`);
+
+await writeFile(`weathers/${date}/${fDate}.json`, content);
+
+await writeFile(`weathers/${date}/latest.json`, content);
+
+await writeFile(`weathers/latest.json`, content);
