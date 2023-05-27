@@ -38,6 +38,6 @@ jobs:
         git config --local user.name "BOT"
         git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
         git add .
-        git pull --rebase
+        git pull
         git commit -m "update by github action"
         git push
