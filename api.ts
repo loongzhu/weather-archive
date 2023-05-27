@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import dayjs from "dayjs";
+import tz from "dayjs/plugin/timezone";
 import jsdom, { JSDOM } from "jsdom";
 import {
   City,
@@ -119,14 +120,16 @@ export async function getRealtimeData(code: string): Promise<RealtimeData> {
 }
 
 export async function getDate(today: Date): Promise<dateType> {
-  const date = dayjs(today).format("YYYY-MM-DD");
-  const datetime = dayjs(today).format("YYYY-MM-DD HH:mm:ss");
+  const date = dayjs(today).tz("PRC").format("YYYY-MM-DD");
+  const datetime = dayjs(today).tz("PRC").format("YYYY-MM-DD HH:mm:ss");
 
   return { date, datetime };
 }
 
 export function formatDate(today: Date): string {
-  const format_date: string = dayjs(today).format("YYYY-MM-DD_HH_mm_ss");
+  const format_date: string = dayjs(today)
+    .tz("PRC")
+    .format("YYYY-MM-DD_HH_mm_ss");
 
   return format_date;
 }
