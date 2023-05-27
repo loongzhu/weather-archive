@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import dayjs from "dayjs";
 import jsdom, { JSDOM } from "jsdom";
 import {
   City,
@@ -118,23 +119,14 @@ export async function getRealtimeData(code: string): Promise<RealtimeData> {
 }
 
 export async function getDate(today: Date): Promise<dateType> {
-  const date = today.toLocaleDateString().replace(/[\/]/g, "-");
-  const datetime = today
-    .toLocaleString()
-    .replace(/[\/]/g, "-")
-    .replace(/[T]/g, " ");
+  const date = dayjs(today).format("YYYY-MM-DD");
+  const datetime = dayjs(today).format("YYYY-MM-DD HH:mm:ss");
 
   return { date, datetime };
 }
 
-export function formatDate(): string {
-  const date = new Date();
-
-  const date_str: string = date.toLocaleString();
-
-  const format_date: string = date_str
-    .replace(/[\/]/g, "-")
-    .replace(/[\s:]/g, "_");
+export function formatDate(today: Date): string {
+  const format_date: string = dayjs(today).format("YYYY-MM-DD_HH_mm_ss");
 
   return format_date;
 }

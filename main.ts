@@ -40,7 +40,7 @@ for (let city of cities) {
 
 const today = new Date();
 const { date, datetime }: dateType = await getDate(today);
-const fDate = formatDate();
+const fDate = formatDate(today);
 
 const content = {
   timestamp: today.getTime(),
