@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import dayjs from "dayjs";
-import tz from "dayjs/plugin/timezone";
+import utc from "dayjs/plugin/utc.js";
+import timezone from "dayjs/plugin/timezone.js";
 import jsdom, { JSDOM } from "jsdom";
 import {
   City,
@@ -10,6 +11,10 @@ import {
   capital,
   dateType,
 } from "./types.ts";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.tz.setDefault("PRC");
 
 export async function getCities(): Promise<City> {
   const url = "https://j.i8tq.com/weather2020/search/city.js";
@@ -120,16 +125,14 @@ export async function getRealtimeData(code: string): Promise<RealtimeData> {
 }
 
 export async function getDate(today: Date): Promise<dateType> {
-  const date = dayjs(today).tz("PRC").format("YYYY-MM-DD");
-  const datetime = dayjs(today).tz("PRC").format("YYYY-MM-DD HH:mm:ss");
+  const date = dayjs.tz(today).format("YYYY-MM-DD");
+  const datetime = dayjs.tz(today).format("YYYY-MM-DD HH:mm:ss");
 
   return { date, datetime };
 }
 
 export function formatDate(today: Date): string {
-  const format_date: string = dayjs(today)
-    .tz("PRC")
-    .format("YYYY-MM-DD_HH_mm_ss");
+  const format_date: string = dayjs.tz(today).format("YYYY-MM-DD_HH_mm_ss");
 
   return format_date;
 }
