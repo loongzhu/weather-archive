@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "noEmit": true,
     "allowImportingTsExtensions": true,
-    "moduleResolution": "nodenext",
+    "moduleResolution": "NodeNext",
     "allowSyntheticDefaultImports": true
   },
   "baseUrl": "./",
