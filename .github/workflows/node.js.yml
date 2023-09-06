@@ -5,39 +5,38 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   schedule:
-    - cron: '30 * * * *'
+    - cron: "30 * * * *"
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Clone repository
-      uses: actions/checkout@v3
-      
-    - name: Use Node.js lts/Hydrogen
-      uses: actions/setup-node@v3
-      with:
-        node-version: lts/Hydrogen
-        cache: 'npm'
+      - name: Clone repository
+        uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Use Node.js lts/Hydrogen
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/Hydrogen
+          cache: "npm"
 
-    - name: run main
-      run: npm run main
-    
-    - name: commit
-      run: | 
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-        git add .
-        git pull
-        git commit -m "update by github action"
-        git push
+      - name: Install dependencies
+        run: npm ci
+
+      - name: run main
+        run: npm run main
+
+      - name: commit
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git add .
+          git pull
+          git commit -m "update by github action"
+          git push
