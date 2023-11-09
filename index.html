@@ -42,17 +42,6 @@
         }
       }
 
-      .imageBack {
-        animation: rotate 1.5s cubic-bezier(0.03, 0.77, 0.72, 1.01);
-      }
-
-      @keyframes imageBack {
-        to {
-          filter: blur(2px);
-          transform: rotateY(-360deg);
-        }
-      }
-
       .info {
         position: absolute;
         bottom: -80px;
@@ -175,10 +164,6 @@
       citiesEl.appendChild(cityEl);
       cityEl.appendChild(markEl);
       cityEl.appendChild(infoEl);
-
-      cityEl.addEventListener("mouseleave", () => {
-        markEl.classList.add("markBack");
-      });
     });
 
     function format() {
