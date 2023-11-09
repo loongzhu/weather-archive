@@ -87,6 +87,7 @@
         z-index: 0;
         background-color: rgba(0, 0, 0, 0.5);
         position: absolute;
+        transition: height 1.5s cubic-bezier(0.03, 0.77, 0.72, 1.01);
       }
 
       .city:hover > .mark {
@@ -95,25 +96,8 @@
       }
 
       @keyframes markRotate {
-        from {
-          height: 40px;
-        }
         to {
           transform: rotateY(360deg);
-          height: 100%;
-        }
-      }
-
-      .markBack {
-        animation: markBack 1.5s cubic-bezier(0.03, 0.77, 0.72, 1.01) forwards;
-      }
-
-      @keyframes markBack {
-        0% {
-          height: 100%;
-        }
-        100% {
-          height: 40px;
         }
       }
 
