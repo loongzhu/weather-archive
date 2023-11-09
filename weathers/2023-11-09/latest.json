@@ -1,6 +1,6 @@
 {
-  "timestamp": 1699531422699,
-  "lastUpdate": "2023-11-09 20:03:42",
+  "timestamp": 1699531538349,
+  "lastUpdate": "2023-11-09 20:05:38",
   "data": [
     {
       "id": "101010100",
@@ -1313,9 +1313,9 @@
         "rain24h": "0.8",
         "aqi": "21",
         "aqi_pm25": "21",
-        "weather": "阴",
-        "weathere": "Overcast",
-        "weathercode": "d02",
+        "weather": "雨",
+        "weathere": null,
+        "weathercode": "d301",
         "limitnumber": "",
         "date": "11月09日(星期四)"
       },
