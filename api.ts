@@ -1,13 +1,13 @@
-import fs from "node:fs";
 import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc.js";
 import timezone from "dayjs/plugin/timezone.js";
-import jsdom, { JSDOM } from "jsdom";
+import utc from "dayjs/plugin/utc.js";
+import { JSDOM } from "jsdom";
+import fs from "node:fs";
 import {
   City,
   CityCode,
-  WeatherData,
   RealtimeData,
+  WeatherData,
   capital,
   dateType,
 } from "./types.ts";

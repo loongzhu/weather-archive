@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index</title>
+    <style>
+      .cities {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .city {
+        width: 160px;
+        height: 240px;
+        margin: 5px;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        z-index: 100;
+      }
+
+      .city > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: blur(3px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        border-radius: 10px;
+      }
+
+      .city:hover > img {
+        filter: blur(1px);
+        animation: rotate 1.5s cubic-bezier(0.03, 0.77, 0.72, 1.01);
+      }
+
+      @keyframes rotate {
+        to {
+          transform: rotateY(360deg);
+        }
+      }
+
+      .imageBack {
+        animation: rotate 1.5s cubic-bezier(0.03, 0.77, 0.72, 1.01);
+      }
+
+      @keyframes imageBack {
+        to {
+          filter: blur(2px);
+          transform: rotateY(-360deg);
+        }
+      }
+
+      .info {
+        position: absolute;
+        bottom: -80px;
+        width: 100%;
+        height: 100px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .city:hover > .info {
+        bottom: 80px;
+        animation: show 1.5s cubic-bezier(1, 0, 1, 0.63) forwards;
+      }
+
+      @keyframes show {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .mark {
+        width: 100%;
+        height: 40px;
+        bottom: 0;
+        z-index: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        transition: height 1.5s cubic-bezier(0.03, 0.77, 0.72, 1.01);
+      }
+
+      .city:hover > .mark {
+        height: 100%;
+        animation: markRotate 1.5s cubic-bezier(0.03, 0.77, 0.72, 1.01) forwards;
+      }
+
+      @keyframes markRotate {
+        from {
+          height: 40px;
+        }
+        to {
+          transform: rotateY(360deg);
+          height: 100%;
+        }
+      }
+
+      .markBack {
+        animation: markBack 1.5s cubic-bezier(0.03, 0.77, 0.72, 1.01) forwards;
+      }
+
+      @keyframes markBack {
+        0% {
+          height: 100%;
+        }
+        100% {
+          height: 40px;
+        }
+      }
+
+      .cityName {
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .infos {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .day,
+      .night {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <script type="module">
+    const nowTimeEl = document.getElementById("nowTime");
+
+    setInterval(() => {
+      nowTimeEl.innerText = `Now: ${format()}`;
+    }, 1000);
+
+    const data = await (await fetch("./weathers/latest.json")).json();
+
+    const { lastUpdate, data: cities } = data;
+
+    const lastUpdateEl = document.getElementById("lastUpdate");
+    lastUpdateEl.innerText = `lastUpdate: ${lastUpdate}`;
+
+    const citiesEl = document.getElementById("cities");
+
+    cities.forEach((city) => {
+      const cityEl = document.createElement("div");
+      const num = Math.random() > 0.5 ? 400 : 240;
+      cityEl.id = city.id;
+      cityEl.className = "city";
+
+      const imageEl = document.createElement("img");
+      // The image address is random and has nothing to do with the city name.
+      imageEl.src = getImgUrl(city.id);
+      cityEl.appendChild(imageEl);
+
+      const infoEl = document.createElement("div");
+      infoEl.className = "info";
+
+      const cityNameEl = document.createElement("div");
+      cityNameEl.className = "cityName";
+      cityNameEl.innerText = city.city;
+      infoEl.appendChild(cityNameEl);
+
+      const { dayEl, nightEl } = getInfoEl(city.weather);
+
+      const infosEl = document.createElement("div");
+      infosEl.className = "infos";
+
+      infosEl.appendChild(dayEl);
+      infosEl.appendChild(nightEl);
+
+      infoEl.appendChild(infosEl);
+
+      const markEl = document.createElement("div");
+      markEl.className = "mark";
+
+      citiesEl.appendChild(cityEl);
+      cityEl.appendChild(markEl);
+      cityEl.appendChild(infoEl);
+
+      cityEl.addEventListener("mouseleave", () => {
+        markEl.classList.add("markBack");
+      });
+    });
+
+    function format() {
+      const date = new Date();
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      const hour = date.getHours();
+      const minute = date.getMinutes();
+      const second = date.getSeconds();
+
+      return `${year}-${add(month)}-${add(day)} ${add(hour)}:${add(
+        minute
+      )}:${add(second)}`;
+    }
+
+    function add(number) {
+      return number < 10 ? "0" + number : number;
+    }
+
+    function getImgUrl(id = "") {
+      return `https://picsum.photos/160/240?random=${id}`;
+    }
+
+    function getInfoEl({ day, night }) {
+      const dayEl = document.createElement("div");
+      dayEl.className = "day";
+
+      for (let item in day) {
+        if (item === "wind" || item === "tempUnit") continue;
+        const itemEl = document.createElement("span");
+        itemEl.innerText = item === "temp" ? day[item] + "°C" : day[item];
+        dayEl.appendChild(itemEl);
+      }
+
+      const nightEl = document.createElement("div");
+      nightEl.className = "night";
+
+      for (let item in night) {
+        if (item === "wind" || item === "tempUnit") continue;
+        const itemEl = document.createElement("span");
+        itemEl.innerText = item === "temp" ? night[item] + "°C" : night[item];
+        nightEl.appendChild(itemEl);
+      }
+
+      return { dayEl, nightEl };
+    }
+  </script>
+  <body>
+    <h2 id="nowTime">Now: YYYY-MM-DD HH:mm:ss</h2>
+    <h2 id="lastUpdate">lastUpdate: YYYY-MM-DD HH:mm:ss</h2>
+
+    <div id="cities" class="cities"></div>
+  </body>
+</html>
