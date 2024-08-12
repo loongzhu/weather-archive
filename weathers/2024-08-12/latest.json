@@ -1,6 +1,6 @@
 {
-  "timestamp": 1723419308074,
-  "lastUpdate": "2024-08-12 07:35:08",
+  "timestamp": 1723423786356,
+  "lastUpdate": "2024-08-12 08:49:46",
   "data": [
     {
       "id": "101010100",
@@ -34,7 +34,7 @@
       "weather": {
         "day": {
           "date": "12日白天",
-          "weather": "雷阵雨",
+          "weather": "多云",
           "temp": "31",
           "tempUnit": "°C",
           "wind": {
@@ -50,8 +50,8 @@
           "temp": "23",
           "tempUnit": "°C",
           "wind": {
-            "direction": "北风",
-            "directionCode": "N",
+            "direction": "东北风",
+            "directionCode": "NE",
             "level": "<3级"
           },
           "sunset": "日落 19:16"
@@ -90,12 +90,12 @@
       "weather": {
         "day": {
           "date": "12日白天",
-          "weather": "中雨",
+          "weather": "小雨",
           "temp": "35",
           "tempUnit": "°C",
           "wind": {
-            "direction": "东风",
-            "directionCode": "E",
+            "direction": "无持续风向",
+            "directionCode": "NNW",
             "level": "<3级"
           },
           "sunrise": "日出 05:17"
@@ -106,8 +106,8 @@
           "temp": "28",
           "tempUnit": "°C",
           "wind": {
-            "direction": "东南风",
-            "directionCode": "SE",
+            "direction": "无持续风向",
+            "directionCode": "NNW",
             "level": "<3级"
           },
           "sunset": "日落 18:41"
@@ -147,7 +147,7 @@
         "day": {
           "date": "12日白天",
           "weather": "雷阵雨",
-          "temp": "33",
+          "temp": "32",
           "tempUnit": "°C",
           "wind": {
             "direction": "西北风",
@@ -159,7 +159,7 @@
         "night": {
           "date": "12日夜间",
           "weather": "雷阵雨",
-          "temp": "25",
+          "temp": "24",
           "tempUnit": "°C",
           "wind": {
             "direction": "东北风",
@@ -203,7 +203,7 @@
         "day": {
           "date": "12日白天",
           "weather": "晴",
-          "temp": "36",
+          "temp": "37",
           "tempUnit": "°C",
           "wind": {
             "direction": "东北风",
@@ -215,7 +215,7 @@
         "night": {
           "date": "12日夜间",
           "weather": "晴",
-          "temp": "26",
+          "temp": "27",
           "tempUnit": "°C",
           "wind": {
             "direction": "西北风",
@@ -430,20 +430,20 @@
           "temp": "26",
           "tempUnit": "°C",
           "wind": {
-            "direction": "北风",
-            "directionCode": "N",
-            "level": "3-4级"
+            "direction": "西北风",
+            "directionCode": "NW",
+            "level": "<3级"
           },
           "sunrise": "日出 05:39"
         },
         "night": {
           "date": "12日夜间",
           "weather": "晴",
-          "temp": "16",
+          "temp": "15",
           "tempUnit": "°C",
           "wind": {
-            "direction": "东北风",
-            "directionCode": "NE",
+            "direction": "西北风",
+            "directionCode": "NW",
             "level": "<3级"
           },
           "sunset": "日落 19:37"
@@ -550,8 +550,8 @@
         },
         "night": {
           "date": "12日夜间",
-          "weather": "多云",
-          "temp": "17",
+          "weather": "晴",
+          "temp": "18",
           "tempUnit": "°C",
           "wind": {
             "direction": "北风",
@@ -706,7 +706,7 @@
       "weather": {
         "day": {
           "date": "12日白天",
-          "weather": "多云",
+          "weather": "小雨",
           "temp": "27",
           "tempUnit": "°C",
           "wind": {
@@ -762,8 +762,8 @@
       "weather": {
         "day": {
           "date": "12日白天",
-          "weather": "小雨",
-          "temp": "18",
+          "weather": "阵雨",
+          "temp": "21",
           "tempUnit": "°C",
           "wind": {
             "direction": "无持续风向",
@@ -775,7 +775,7 @@
         "night": {
           "date": "12日夜间",
           "weather": "小雨",
-          "temp": "13",
+          "temp": "10",
           "tempUnit": "°C",
           "wind": {
             "direction": "无持续风向",
@@ -1060,7 +1060,7 @@
           "wind": {
             "direction": "东北风",
             "directionCode": "NE",
-            "level": "4-5级"
+            "level": "3-4级"
           },
           "sunset": "日落 18:53"
         }
@@ -1155,24 +1155,24 @@
         "day": {
           "date": "12日白天",
           "weather": "雷阵雨",
-          "temp": "36",
+          "temp": "38",
           "tempUnit": "°C",
           "wind": {
-            "direction": "北风",
-            "directionCode": "N",
-            "level": "4-5级"
+            "direction": "东北风",
+            "directionCode": "NE",
+            "level": "3-4级"
           },
           "sunrise": "日出 05:23"
         },
         "night": {
           "date": "12日夜间",
           "weather": "晴",
-          "temp": "27",
+          "temp": "26",
           "tempUnit": "°C",
           "wind": {
-            "direction": "无持续风向",
-            "directionCode": "NNW",
-            "level": "<3级"
+            "direction": "西南风",
+            "directionCode": "SW",
+            "level": "3-4级"
           },
           "sunset": "日落 18:44"
         }
@@ -1214,21 +1214,21 @@
           "temp": "38",
           "tempUnit": "°C",
           "wind": {
-            "direction": "北风",
-            "directionCode": "N",
-            "level": "3-4级"
+            "direction": "西北风",
+            "directionCode": "NW",
+            "level": "<3级"
           },
           "sunrise": "日出 05:33"
         },
         "night": {
           "date": "12日夜间",
-          "weather": "晴",
-          "temp": "24",
+          "weather": "多云",
+          "temp": "26",
           "tempUnit": "°C",
           "wind": {
-            "direction": "北风",
-            "directionCode": "N",
-            "level": "3-4级"
+            "direction": "东北风",
+            "directionCode": "NE",
+            "level": "<3级"
           },
           "sunset": "日落 18:59"
         }
@@ -1379,11 +1379,11 @@
         "day": {
           "date": "12日白天",
           "weather": "小雨",
-          "temp": "35",
+          "temp": "33",
           "tempUnit": "°C",
           "wind": {
-            "direction": "东南风",
-            "directionCode": "SE",
+            "direction": "南风",
+            "directionCode": "S",
             "level": "<3级"
           },
           "sunrise": "日出 05:56"
@@ -1391,7 +1391,7 @@
         "night": {
           "date": "12日夜间",
           "weather": "多云",
-          "temp": "26",
+          "temp": "25",
           "tempUnit": "°C",
           "wind": {
             "direction": "南风",
@@ -1434,8 +1434,8 @@
       "weather": {
         "day": {
           "date": "12日白天",
-          "weather": "阵雨",
-          "temp": "27",
+          "weather": "多云",
+          "temp": "29",
           "tempUnit": "°C",
           "wind": {
             "direction": "东北风",
@@ -1447,7 +1447,7 @@
         "night": {
           "date": "12日夜间",
           "weather": "多云",
-          "temp": "21",
+          "temp": "20",
           "tempUnit": "°C",
           "wind": {
             "direction": "东北风",
@@ -1491,7 +1491,7 @@
         "day": {
           "date": "12日白天",
           "weather": "晴",
-          "temp": "36",
+          "temp": "37",
           "tempUnit": "°C",
           "wind": {
             "direction": "无持续风向",
@@ -1559,7 +1559,7 @@
         "night": {
           "date": "12日夜间",
           "weather": "中雨",
-          "temp": "26",
+          "temp": "27",
           "tempUnit": "°C",
           "wind": {
             "direction": "无持续风向",
@@ -1727,7 +1727,7 @@
         "night": {
           "date": "12日夜间",
           "weather": "多云",
-          "temp": "25",
+          "temp": "27",
           "tempUnit": "°C",
           "wind": {
             "direction": "无持续风向",
